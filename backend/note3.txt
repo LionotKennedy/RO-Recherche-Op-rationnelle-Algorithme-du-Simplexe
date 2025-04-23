@@ -1,0 +1,28 @@
+{
+    "objective": [
+        25,
+        41,
+        39
+    ],
+    "objectiveType": "max",
+    "constraints": [
+        {
+            "coefficients": [
+                0.12,
+                0.52,
+                0.42
+            ],
+            "type": ">=",
+            "rhs": 0.22
+        },
+        {
+            "coefficients": [
+                0.02,
+                0.02,
+                0.10
+            ],
+            "type": ">=",
+            "rhs": 0.036
+        }
+    ]
+}

@@ -1,0 +1,91 @@
+{
+    "goal": "max",
+    "objective": [
+        420,
+        510,
+        360
+    ],
+    "constraints": [
+        {
+            "coefficients": [
+                1500,
+                1800,
+                1050
+            ],
+            "sign": "<=",
+            "rhs": 63000
+        },
+        {
+            "coefficients": [
+                18,
+                27,
+                15
+            ],
+            "sign": "<=",
+            "rhs": 840
+        },
+        {
+            "coefficients": [
+                1,
+                1,
+                1
+            ],
+            "sign": "<=",
+            "rhs": 40
+        }
+    ]
+}
+=> "Z": 17914.285714285714
+
+
+
+
+{
+  "goal": "min",
+  "objective": [25, 41, 39],
+  "constraints": [
+    { "coefficients": [0.12, 0.52, 0.42], "sign": ">=", "rhs": 0.22 },
+    { "coefficients": [0.02, 0.02, 0.10], "sign": ">=", "rhs": 0.036 }
+  ]
+}
+
+
+
+
+
+
+
+
+{
+    "goal": "min",
+    "objective": [
+        15,
+        33
+    ],
+    "constraints": [
+        {
+            "coefficients": [
+                3,
+                2
+            ],
+            "sign": ">=",
+            "rhs": 6
+        },
+        {
+            "coefficients": [
+                6,
+                1
+            ],
+            "sign": ">=",
+            "rhs": 6
+        },
+        {
+            "coefficients": [
+                0,
+                1
+            ],
+            "sign": ">=",
+            "rhs": 1
+        }
+    ]
+}
