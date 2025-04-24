@@ -28,18 +28,14 @@ interface SolverFormProps {
 
 export function SolverForm({ onResult, onSolving }: SolverFormProps) {
   const [objective, setObjective] = useState<ObjectiveFunction>({
-    // coefficients: [15, 33],
-    coefficients: [15, 33, 52],  // Ajout d'un coefficient pour x3
+    coefficients: [0, 0, 0],  // Ajout d'un coefficient pour x3
     type: "max",
   });
 
   const [constraints, setConstraints] = useState<Constraint[]>([
-    // { coefficients: [3, 2], type: ">=", rhs: 6 },
-    // { coefficients: [6, 2], type: ">=", rhs: 6 },
-    // { coefficients: [0, 1], type: ">=", rhs: 1 },
-    { coefficients: [3, 2, 0], type: ">=", rhs: 6 }, // Ajout de 0 pour x3
-    { coefficients: [6, 2, 0], type: ">=", rhs: 6 },
-    { coefficients: [0, 1, 1], type: ">=", rhs: 1 }, // Ajout d'un coefficient pour x3
+    { coefficients: [0, 0, 0], type: ">=", rhs: 0 }, // Ajout de 0 pour x3
+    { coefficients: [0, 0, 0], type: ">=", rhs: 0 },
+    { coefficients: [0, 0, 0], type: ">=", rhs: 0 }, // Ajout d'un coefficient pour x3
   ]);
 
   const [solving, setSolving] = useState(false);
@@ -52,9 +48,16 @@ export function SolverForm({ onResult, onSolving }: SolverFormProps) {
 
     try {
       const problem: LinearProgrammingProblem = {
-        objective: objective.coefficients,
+        // objective: objective.coefficients,
+        // objectiveType: objective.type,
+        // constraints: constraints,
+        objective: objective.coefficients.map(c => isNaN(c) ? 0 : c),
         objectiveType: objective.type,
-        constraints: constraints,
+        constraints: constraints.map(c => ({
+          ...c,
+          coefficients: c.coefficients.map(c => isNaN(c) ? 0 : c),
+          rhs: isNaN(c.rhs) ? 0 : c.rhs
+        })),
       };
 
       const result = await solveLinearProgrammingProblem(problem);

@@ -1,4 +1,5 @@
-Je vais vous aider à améliorer vos composants pour gérer les champs vides et ajouter la validation required. Voici les modifications nécessaires :
+Je vais vous aider à améliorer vos composants pour gérer les champs vides et ajouter la validation required. 
+Voici les modifications nécessaires :
 
 ### 1. D'abord, mettez à jour vos types (`types.ts`) :
 
@@ -206,4 +207,4 @@ export function SolverForm({ onResult, onSolving }: SolverFormProps) {
    - Gestion des anciennes valeurs avec seulement 2 coefficients
    - Conversion automatique des valeurs manquantes en 0 pour le calcul
 
-Ces modifications rendent votre interface plus robuste tout en gardant la même apparence et les mêmes fonctionnalités.
+Ces modifications rendent votre interface plus robuste tout en gardant la même apparence et les mêmes fonctionnalités. 

@@ -123,6 +123,16 @@ export function Results({ result, loading }: ResultsProps) {
                   <AnimatedValue value={result.data.x2} prefix="" />
                 </div>
               </motion.div>
+              
+              <motion.div
+                variants={itemVariants}
+                className="rounded-lg bg-muted/50 p-4 text-center"
+              >
+                <div className="text-muted-foreground mb-2">Variable X₂</div>
+                <div className="text-3xl font-bold">
+                  <AnimatedValue value={result.data.x3} prefix="" />
+                </div>
+              </motion.div>
 
               <motion.div
                 variants={itemVariants}
