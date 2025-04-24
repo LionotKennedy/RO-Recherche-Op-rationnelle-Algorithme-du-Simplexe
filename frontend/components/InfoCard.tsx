@@ -18,36 +18,36 @@ export function InfoCard() {
         <CardHeader className="bg-primary/5">
           <CardTitle className="flex items-center gap-2">
             <TrendingUp className="h-5 w-5" />
-            Linear Programming Solver
+            Outil de résolution de programmation linéaire
           </CardTitle>
           <CardDescription>
-            Solve linear programming problems with constraints
+          Résoudre des problèmes de programmation linéaire sous contraintes
           </CardDescription>
         </CardHeader>
         <CardContent className="pt-6">
           <div className="space-y-4 text-sm">
             <p>
-              This tool helps you solve linear programming optimization problems with two variables
-              (X₁ and X₂). Input your objective function and constraints below.
+            Cet outil vous aide à résoudre des problèmes d’optimisation en programmation linéaire à deux ou trois variables.
+              (X₁, X₂ et X₃). Saisissez votre fonction objectif et vos contraintes ci-dessous.
             </p>
             
             <div className="rounded-md bg-muted p-4">
               <div className="flex items-center gap-2 font-medium">
                 <AlertCircle className="h-4 w-4 text-amber-500" />
-                <h4>How to use</h4>
+                <h4>Mode d'emploi</h4>
               </div>
               <Separator className="my-2" />
               <ol className="ml-5 list-decimal space-y-1 text-muted-foreground">
-                <li>Define your objective function (minimize or maximize)</li>
-                <li>Add constraints using the "Add Constraint" button</li>
-                <li>Specify coefficients and inequality types</li>
-                <li>Click "Solve Problem" to get the optimal solution</li>
+                <li>Indiquez la fonction objectif à minimiser ou à maximiser.</li>
+                <li>Ajoutez des contraintes via le bouton "Ajouter une contrainte".</li>
+                <li>Indiquez les coefficients et les types d'inégalités.</li>
+                <li>Cliquez sur "Résoudre le problème" afin d'obtenir la solution optimale.</li>
               </ol>
             </div>
             
             <div className="flex items-center gap-2 text-muted-foreground">
               <HelpCircle className="h-4 w-4" />
-              <p>The solver will find values for X₁ and X₂ that optimize your objective function Z while satisfying all constraints.</p>
+              <p>Le solveur déterminera les valeurs de X₁, X₂ et X₃ qui maximisent ou minimisent votre fonction objectif Z, tout en respectant toutes les contraintes.</p>
             </div>
           </div>
         </CardContent>

@@ -25,10 +25,10 @@ export function Results({ result, loading }: ResultsProps) {
         <CardHeader className="bg-muted/50">
           <CardTitle className="text-lg flex items-center gap-2">
             <div className="h-4 w-4 rounded-full bg-primary animate-pulse" />
-            Computing Solution...
+            Calcul de la solution...
           </CardTitle>
           <CardDescription>
-            Processing your linear programming problem
+          Traitement de votre problème de programmation linéaire
           </CardDescription>
         </CardHeader>
         <CardContent className="pt-6">
@@ -86,12 +86,12 @@ export function Results({ result, loading }: ResultsProps) {
                   className="text-emerald-500 dark:text-emerald-400"
                   size={20}
                 />
-                <span>Optimal Solution Found</span>
+                <span>Solution optimale trouvée</span>
               </>
             ) : (
               <>
                 <AlertTriangle className="text-destructive" size={20} />
-                <span>Problem Encountered</span>
+                <span>Problème rencontré</span>
               </>
             )}
           </CardTitle>
@@ -128,7 +128,7 @@ export function Results({ result, loading }: ResultsProps) {
                 variants={itemVariants}
                 className="rounded-lg bg-muted/50 p-4 text-center"
               >
-                <div className="text-muted-foreground mb-2">Variable X₂</div>
+                <div className="text-muted-foreground mb-2">Variable X₃</div>
                 <div className="text-3xl font-bold">
                   <AnimatedValue value={result.data.x3} prefix="" />
                 </div>
@@ -139,7 +139,7 @@ export function Results({ result, loading }: ResultsProps) {
                 className="rounded-lg bg-primary/10 p-4 text-center"
               >
                 <div className="text-muted-foreground mb-2">
-                  Objective Value Z
+                Valeur objective Z
                 </div>
                 <div className="text-3xl font-bold text-primary">
                   <AnimatedValue value={result.data.Z} prefix="" />

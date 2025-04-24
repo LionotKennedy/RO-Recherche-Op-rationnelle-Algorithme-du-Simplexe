@@ -1,12 +1,16 @@
-
-
 "use client";
 
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Constraint } from "@/lib/types";
 import { Plus, Trash2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -37,13 +41,13 @@ export function Constraints({ constraints, onChange }: ConstraintsProps) {
     value: string | number
   ) => {
     const newConstraints = [...constraints];
-    
+
     if (field === "type") {
       newConstraints[index].type = value as Constraint["type"];
     } else if (field === "rhs") {
       newConstraints[index].rhs = parseFloat(value as string) || 0;
     }
-    
+
     onChange(newConstraints);
   };
 
@@ -57,31 +61,36 @@ export function Constraints({ constraints, onChange }: ConstraintsProps) {
     while (newConstraints[constraintIndex].coefficients.length < 3) {
       newConstraints[constraintIndex].coefficients.push(0);
     }
-    newConstraints[constraintIndex].coefficients[coefficientIndex] = parseFloat(value) || 0;
+    newConstraints[constraintIndex].coefficients[coefficientIndex] =
+      parseFloat(value) || 0;
     onChange(newConstraints);
   };
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.2 }}
       className="space-y-6"
     >
       <div>
-        <h3 className="text-lg font-medium">Constraints</h3>
+        <h3 className="text-lg font-medium">Contraintes</h3>
         <p className="text-sm text-muted-foreground">
-          Add constraints to your linear programming problem.
+          Ajoutez des contraintes à votre problème de programmation linéaire.
         </p>
       </div>
-      
+
       <AnimatePresence>
         {constraints.map((constraint, index) => {
           // S'assurer qu'il y a 3 coefficients
-          const coefficients = constraint.coefficients.length >= 3 
-            ? constraint.coefficients 
-            : [...constraint.coefficients, ...Array(3 - constraint.coefficients.length).fill(0)];
-          
+          const coefficients =
+            constraint.coefficients.length >= 3
+              ? constraint.coefficients
+              : [
+                  ...constraint.coefficients,
+                  ...Array(3 - constraint.coefficients.length).fill(0),
+                ];
+
           return (
             <motion.div
               key={index}
@@ -97,7 +106,7 @@ export function Constraints({ constraints, onChange }: ConstraintsProps) {
                     <Input
                       type="number"
                       value={coefficients[0]}
-                      onChange={(e) => 
+                      onChange={(e) =>
                         handleCoefficientChange(index, 0, e.target.value)
                       }
                       className="w-20"
@@ -105,7 +114,7 @@ export function Constraints({ constraints, onChange }: ConstraintsProps) {
                     />
                     <span className="text-sm">X₁</span>
                     <span>+</span>
-                    
+
                     {/* Coefficient X₂ */}
                     <Input
                       type="number"
@@ -118,7 +127,7 @@ export function Constraints({ constraints, onChange }: ConstraintsProps) {
                     />
                     <span className="text-sm">X₂</span>
                     <span>+</span>
-                    
+
                     {/* Nouveau coefficient X₃ */}
                     <Input
                       type="number"
@@ -130,7 +139,7 @@ export function Constraints({ constraints, onChange }: ConstraintsProps) {
                       placeholder="0"
                     />
                     <span className="text-sm">X₃</span>
-                    
+
                     {/* Sélecteur d'opérateur */}
                     <Select
                       value={constraint.type}
@@ -147,7 +156,7 @@ export function Constraints({ constraints, onChange }: ConstraintsProps) {
                         <SelectItem value="=">=</SelectItem>
                       </SelectContent>
                     </Select>
-                    
+
                     {/* Valeur RHS */}
                     <Input
                       type="number"
@@ -158,7 +167,7 @@ export function Constraints({ constraints, onChange }: ConstraintsProps) {
                       className="w-20"
                       placeholder="0"
                     />
-                    
+
                     {/* Bouton de suppression */}
                     <Button
                       variant="ghost"
@@ -175,13 +184,13 @@ export function Constraints({ constraints, onChange }: ConstraintsProps) {
           );
         })}
       </AnimatePresence>
-      
+
       <Button
         variant="outline"
         onClick={handleAddConstraint}
         className="w-full"
       >
-        <Plus size={16} className="mr-2" /> Add Constraint
+        <Plus size={16} className="mr-2" /> Ajouter une contrainte
       </Button>
     </motion.div>
   );

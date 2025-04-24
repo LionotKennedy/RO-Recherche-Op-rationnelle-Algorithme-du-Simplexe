@@ -85,7 +85,7 @@ export function SolverForm({ onResult, onSolving }: SolverFormProps) {
       coucou
       <Card className="w-full overflow-hidden border-2 border-primary/10">
         <CardHeader className="bg-primary/5">
-          <CardTitle>Linear Programming Solver</CardTitle>
+          <CardTitle>Résolveur de programmation linéaire.</CardTitle>
         </CardHeader>
         <CardContent className="pt-6">
           <div className="space-y-8">
@@ -112,10 +112,10 @@ export function SolverForm({ onResult, onSolving }: SolverFormProps) {
             {solving ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Solving...
+                En cours de résolution...
               </>
             ) : (
-              "Solve Problem"
+              "Résoudre le problème"
             )}
           </Button>
         </CardFooter>
