@@ -26,3 +26,130 @@
         }
     ]
 }
+
+
+
+{
+    "objective": [
+        15,
+        33
+    ],
+    "objectiveType": "min",
+    "constraints": [
+        {
+            "coefficients": [
+                3,
+                2
+            ],
+            "type": ">=",
+            "rhs": 6
+        },
+        {
+            "coefficients": [
+                6,
+                2
+            ],
+            "type": ">=",
+            "rhs": 6
+        },
+        {
+            "coefficients": [
+                0,
+                1
+            ],
+            "type": ">=",
+            "rhs": 1
+        }
+    ]
+}
+
+
+
+{
+    "objective": [
+        4,
+        12,
+        3
+    ],
+    "objectiveType": "max",
+    "constraints": [
+        {
+            "coefficients": [
+                1,
+                0,
+                0
+            ],
+            "type": "<=",
+            "rhs": 1000
+        },
+        {
+            "coefficients": [
+                0,
+                1,
+                0
+            ],
+            "type": "<=",
+            "rhs": 500
+        },
+        {
+            "coefficients": [
+                0,
+                0,
+                1
+            ],
+            "type": "<=",
+            "rhs": 1500
+        },
+        {
+            "coefficients": [
+                3,
+                6,
+                2
+            ],
+            "type": "<=",
+            "rhs": 6750
+        }
+    ]
+}
+
+
+
+
+
+{
+    "objective": [
+        5,
+        -2,
+        3
+    ],
+    "objectiveType": "max",
+    "constraints": [
+        {
+            "coefficients": [
+                2,
+                2,
+                -1
+            ],
+            "type": ">=",
+            "rhs": 2
+        },
+        {
+            "coefficients": [
+                3,
+                -4,
+                0
+            ],
+            "type": "<=",
+            "rhs": 3
+        },
+        {
+            "coefficients": [
+                0,
+                1,
+                3
+            ],
+            "type": "<=",
+            "rhs": 5
+        }
+    ]
+}
