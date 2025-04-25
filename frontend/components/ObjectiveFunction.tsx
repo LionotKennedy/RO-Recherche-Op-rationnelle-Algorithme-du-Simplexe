@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -14,11 +13,18 @@ interface ObjectiveFunctionProps {
   onChange: (objective: ObjectiveFunction) => void;
 }
 
-export function ObjectiveFunctionInput({ objective, onChange }: ObjectiveFunctionProps) {
+export function ObjectiveFunctionInput({
+  objective,
+  onChange,
+}: ObjectiveFunctionProps) {
   // S'assurer qu'il y a au moins 3 coefficients (ajoute 0 si nécessaire)
-  const coefficients = objective.coefficients.length >= 3 
-    ? objective.coefficients 
-    : [...objective.coefficients, ...Array(3 - objective.coefficients.length).fill(0)];
+  const coefficients =
+    objective.coefficients.length >= 3
+      ? objective.coefficients
+      : [
+          ...objective.coefficients,
+          ...Array(3 - objective.coefficients.length).fill(0),
+        ];
 
   const handleCoefficientChange = (index: number, value: string) => {
     const newCoefficients = [...coefficients];
@@ -31,7 +37,7 @@ export function ObjectiveFunctionInput({ objective, onChange }: ObjectiveFunctio
   };
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -40,10 +46,11 @@ export function ObjectiveFunctionInput({ objective, onChange }: ObjectiveFunctio
       <div>
         <h3 className="text-lg font-medium">Fonction Objectif</h3>
         <p className="text-sm text-muted-foreground">
-        Définissez les coefficients de votre fonction objectif et précisez si vous souhaitez minimiser ou maximiser.
+          Définissez les coefficients de votre fonction objectif et précisez si
+          vous souhaitez minimiser ou maximiser.
         </p>
       </div>
-      
+
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end">
         <RadioGroup
           value={objective.type}
@@ -51,19 +58,29 @@ export function ObjectiveFunctionInput({ objective, onChange }: ObjectiveFunctio
           className="flex flex-row space-x-4 sm:flex-col sm:space-x-0 sm:space-y-1"
         >
           <div className="flex items-center space-x-2">
-            <RadioGroupItem value="min" id="min" />
-            <Label htmlFor="min">Minimiser</Label>
-          </div>
-          <div className="flex items-center space-x-2">
             <RadioGroupItem value="max" id="max" />
             <Label htmlFor="max">Maximiser</Label>
           </div>
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="min" id="min" />
+            <Label htmlFor="min">Minimiser</Label>
+          </div>
         </RadioGroup>
-        
-        <Separator className="hidden sm:block h-10" orientation="vertical" />
-        
+            <Separator
+              className="hidden sm:block h-10"
+              orientation="vertical"
+            />
+
         <div className="flex-1 grid gap-4 pt-2 sm:pt-0">
           <div className="flex items-center gap-1 flex-wrap">
+
+            <span className="ml-2 font-semibold">Z</span>
+            <span className="ml-2">=</span>
+
+            <Separator
+              className="hidden sm:block h-10"
+              orientation="vertical"
+            />
             <Input
               type="number"
               value={coefficients[0]}
@@ -73,7 +90,7 @@ export function ObjectiveFunctionInput({ objective, onChange }: ObjectiveFunctio
             />
             <span className="text-sm">X₁</span>
             <span className="mx-2">+</span>
-            
+
             <Input
               type="number"
               value={coefficients[1]}
@@ -83,7 +100,7 @@ export function ObjectiveFunctionInput({ objective, onChange }: ObjectiveFunctio
             />
             <span className="text-sm">X₂</span>
             <span className="mx-2">+</span>
-            
+
             <Input
               type="number"
               value={coefficients[2]}
@@ -92,9 +109,6 @@ export function ObjectiveFunctionInput({ objective, onChange }: ObjectiveFunctio
               placeholder="0"
             />
             <span className="text-sm">X₃</span>
-            
-            <span className="ml-2">=</span>
-            <span className="ml-2 font-semibold">Z</span>
           </div>
         </div>
       </div>

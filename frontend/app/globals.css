@@ -109,7 +109,7 @@
 }  */
 
 
-@import "tailwindcss";
+
 
 /* @import "tailwindcss/preflight"; */
 /* @import "tailwindcss/components"; */
@@ -118,6 +118,9 @@
 /* @tailwind base;
 @tailwind components;
 @tailwind utilities; */
+
+@import "tailwindcss";
+
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -193,6 +196,7 @@
 @layer base {
   * {
     border-color: hsl(var(--border));
+    /* @apply border-border; */
   }
   
   body {
