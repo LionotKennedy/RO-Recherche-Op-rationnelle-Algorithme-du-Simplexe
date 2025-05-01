@@ -70,7 +70,6 @@ export function Results({ result, loading }: ResultsProps) {
       variants={containerVariants}
       className="w-full"
     >
-      coucou
       <Card className="w-full mt-8 overflow-hidden border-2 border-primary/20">
         <CardHeader
           className={`${
@@ -106,7 +105,7 @@ export function Results({ result, loading }: ResultsProps) {
             <div className="grid gap-6 sm:grid-cols-3">
               <motion.div
                 variants={itemVariants}
-                className="rounded-lg bg-muted/50 p-4 text-center"
+                className="rounded-lg bg-muted/50 p-4 text-center resultCard"
               >
                 <div className="text-muted-foreground mb-2">Variable X₁</div>
                 <div className="text-3xl font-bold">
@@ -116,7 +115,7 @@ export function Results({ result, loading }: ResultsProps) {
 
               <motion.div
                 variants={itemVariants}
-                className="rounded-lg bg-muted/50 p-4 text-center"
+                className="rounded-lg bg-muted/50 p-4 text-center resultCard"
               >
                 <div className="text-muted-foreground mb-2">Variable X₂</div>
                 <div className="text-3xl font-bold">
@@ -126,7 +125,7 @@ export function Results({ result, loading }: ResultsProps) {
               
               <motion.div
                 variants={itemVariants}
-                className="rounded-lg bg-muted/50 p-4 text-center"
+                className="rounded-lg bg-muted/50 p-4 text-center resultCard"
               >
                 <div className="text-muted-foreground mb-2">Variable X₃</div>
                 <div className="text-3xl font-bold">
@@ -136,12 +135,12 @@ export function Results({ result, loading }: ResultsProps) {
 
               <motion.div
                 variants={itemVariants}
-                className="rounded-lg bg-primary/10 p-4 text-center"
+                className="rounded-lg bg-primary/10 p-4 text-center resultZ "
               >
-                <div className="text-muted-foreground mb-2">
+                <div className="text-muted-foreground mb-2 txtZ">
                 Valeur objective Z
                 </div>
-                <div className="text-3xl font-bold text-primary">
+                <div className="text-3xl font-bold text-primary txtZ">
                   <AnimatedValue value={result.data.Z} prefix="" />
                 </div>
               </motion.div>

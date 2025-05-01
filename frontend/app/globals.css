@@ -1,126 +1,8 @@
 
-/* @import "tailwindcss";
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 221 83% 53%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221 83% 53%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
-  }
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217 91% 60%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-    background-image: 
-      radial-gradient(at 50% 0%, rgba(var(--primary) / 0.1) 0px, transparent 70%),
-      radial-gradient(at 0% 0%, rgba(var(--primary) / 0.05) 0px, transparent 50%);
-    background-attachment: fixed;
-  }
-
-  input[type=number]::-webkit-inner-spin-button, 
-  input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none; 
-    margin: 0; 
-  }
-  input[type=number] {
-    -moz-appearance: textfield;
-  }
-}
-
-.animate-solution {
-  animation: fadeIn 0.5s ease-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}  */
-
-
-
-
-/* @import "tailwindcss/preflight"; */
-/* @import "tailwindcss/components"; */
-/* @import "tailwindcss/utilities"; */
-
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
-
 @import "tailwindcss";
-
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
+@plugin "tailwindcss-animate";
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -137,7 +19,8 @@
 }
 
 @layer base {
-  :root {
+  /* :root { */
+  .dark {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
@@ -165,7 +48,8 @@
     --radius: 0.5rem;
   }
 
-  .dark {
+  :root {
+    /* .dark { */
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
     --card: 222.2 84% 4.9%;
@@ -196,25 +80,27 @@
 @layer base {
   * {
     border-color: hsl(var(--border));
-    /* @apply border-border; */
   }
-  
+
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
-    background-image: 
-      radial-gradient(at 50% 0%, rgba(221, 83%, 53%, 0.1) 0px, transparent 70%),
+    background-image: radial-gradient(
+        at 50% 0%,
+        rgba(221, 83%, 53%, 0.1) 0px,
+        transparent 70%
+      ),
       radial-gradient(at 0% 0%, rgba(221, 83%, 53%, 0.05) 0px, transparent 50%);
     background-attachment: fixed;
   }
 
-  input[type=number]::-webkit-inner-spin-button,
-  input[type=number]::-webkit-outer-spin-button {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
-  
-  input[type=number] {
+
+  input[type="number"] {
     -moz-appearance: textfield;
   }
 }
@@ -232,4 +118,184 @@
     opacity: 1;
     transform: translateY(0);
   }
-} 
+}
+
+@theme {
+  /* Couleurs */
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(222.2, 84%, 4.9%);
+
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(222.2, 84%, 4.9%);
+
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(222.2, 84%, 4.9%);
+
+  --primary: hsl(222.2, 47.4%, 11.2%);
+  --primary-foreground: hsl(210, 40%, 98%);
+
+  --secondary: hsl(210, 40%, 96.1%);
+  --secondary-foreground: hsl(222.2, 47.4%, 11.2%);
+
+  --muted: hsl(210, 40%, 96.1%);
+  --muted-foreground: hsl(215.4, 16.3%, 46.9%);
+
+  --accent: hsl(210, 40%, 96.1%);
+  --accent-foreground: hsl(222.2, 47.4%, 11.2%);
+
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+
+  --border: hsl(214.3, 31.8%, 91.4%);
+  --input: hsl(214.3, 31.8%, 91.4%);
+  --ring: hsl(222.2, 84%, 4.9%);
+
+  --chart-1: hsl(221.2, 83.2%, 53.3%);
+  --chart-2: hsl(217.2, 91.2%, 59.8%);
+  --chart-3: hsl(210, 40%, 96.1%);
+  --chart-4: hsl(214.3, 31.8%, 91.4%);
+  --chart-5: hsl(215, 20.2%, 65.1%);
+
+  /* Bordures */
+  --radius: 0.5rem;
+
+  /* Background images */
+  --gradient-radial: radial-gradient(var(--tw-gradient-stops));
+  --gradient-conic: conic-gradient(
+    from 180deg at 50% 50%,
+    var(--tw-gradient-stops)
+  );
+}
+
+.outil {
+  background-color: hsl(222.2, 47.4%, 11.2%);
+}
+
+.use {
+  background-color: hsl(217.2 32.6% 17.5%);
+}
+
+.maxmix {
+  color: hsl(217, 65%, 42%);
+  cursor: pointer;
+  border: 2px solid hsl(217, 65%, 42%);
+  transition: 0.3s ease;
+}
+
+.maxmix:focus {
+  transform: scale(1.3);
+}
+
+.input {
+  background-color: hsl(222.2 84% 4.9%);
+}
+
+.hoverInput:hover {
+  background-color: hsl(222.2, 47.4%, 11.2%);
+  /* background-color: hsl(222.2 84% 4.9%); */
+}
+
+.btnDelete {
+  color: rgb(169, 34, 34);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btnDelete:hover {
+  color: red;
+  transform: scale(1.5);
+}
+
+.btnAdd {
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.btnAdd:hover {
+  color: rgb(236, 236, 236);
+  transform: scale(0.8);
+  background-color: hsl(217.2 32.6% 17.5%);
+}
+
+.btnResult {
+  transition: 0.3s ease;
+  cursor: pointer;
+  background-color: hsl(217.2 32.6% 17.5%);
+}
+
+.btnResult:hover {
+  transform: scale(1.2);
+}
+
+.containerResult {
+  background-color: hsl(222.2, 47.4%, 11.2%);
+}
+
+.containerInput {
+  transition: 0.3s ease;
+}
+
+.containerInput:hover {
+  transform: translateY(-10px) scale(1.03);
+}
+
+.containerInput:hover {
+  box-shadow: 0 0 5px hsl(183, 100%, 52%), 0 0 20px hsl(230, 100%, 52%),
+  0 0 40px hsl(230, 93%, 29%);
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsl(222.2, 47.4%, 11.2%);
+}
+
+::-webkit-scrollbar-track {
+  background-color: hsl(222.2 84% 4.9%);
+  width: 50px;
+}
+
+body {
+  /* background-image: radial-gradient(
+      at 50% 0%,
+      hsl(230, 63%, 10%) 0px,
+      transparent 70%
+    ),
+    radial-gradient(
+      at 0% 0%,
+      hsl(241, 80%, 10%) 0px,
+      transparent 50%
+    ); */
+  background-image: radial-gradient(
+      at 50% 0%,
+      rgba(var(--primary) / 0.1) 0px,
+      transparent 70%
+    ),
+    radial-gradient(
+      at 0% 0%,
+      rgba(var(--primary) / 0.05) 0px,
+      transparent 50%
+    );
+  background-attachment: fixed;
+}
+
+.resultCard {
+  /* background: hsl(217.2 32.6% 17.5%); */
+  background-color: hsl(223, 48%, 20%);
+}
+
+.resultZ {
+  transition: 0.3s ease;
+  background-color: hsl(221, 91%, 9%);
+}
+
+.resultZ:hover {
+  box-shadow: 0 0 5px hsl(183, 100%, 52%), 0 0 20px hsl(230, 100%, 52%),
+  0 0 40px hsl(230, 93%, 29%);
+}
+
+.txtZ {
+  color: hsl(217, 100%, 50%);;
+}

@@ -82,10 +82,9 @@ export function SolverForm({ onResult, onSolving }: SolverFormProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      coucou
       <Card className="w-full overflow-hidden border-2 border-primary/10">
-        <CardHeader className="bg-primary/5">
-          <CardTitle>Résolveur de programmation linéaire.</CardTitle>
+        <CardHeader className="bg-primary/5 outil">
+          <CardTitle>Résolution de programmation linéaire.</CardTitle>
         </CardHeader>
         <CardContent className="pt-6">
           <div className="space-y-8">
@@ -103,11 +102,11 @@ export function SolverForm({ onResult, onSolving }: SolverFormProps) {
             )}
           </div>
         </CardContent>
-        <CardFooter className="border-t bg-muted/30 px-6 py-4">
+        <CardFooter className="border-t bg-muted/30 px-6 py-4 containerResult">
           <Button
             onClick={handleSolve}
             disabled={solving}
-            className="ml-auto w-full sm:w-auto"
+            className="ml-auto w-full sm:w-auto btnResult"
           >
             {solving ? (
               <>

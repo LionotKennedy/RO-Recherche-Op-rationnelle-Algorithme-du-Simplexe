@@ -99,7 +99,7 @@ export function Constraints({ constraints, onChange }: ConstraintsProps) {
               exit={{ opacity: 0, x: 20 }}
               transition={{ duration: 0.3 }}
             >
-              <Card className="mb-4">
+              <Card className="mb-4 containerInput">
                 <CardContent className="pt-6">
                   <div className="flex flex-wrap items-center gap-2">
                     {/* Coefficient X₁ */}
@@ -109,7 +109,7 @@ export function Constraints({ constraints, onChange }: ConstraintsProps) {
                       onChange={(e) =>
                         handleCoefficientChange(index, 0, e.target.value)
                       }
-                      className="w-20"
+                      className="w-20 input"
                       placeholder="0"
                     />
                     <span className="text-sm">X₁</span>
@@ -122,7 +122,7 @@ export function Constraints({ constraints, onChange }: ConstraintsProps) {
                       onChange={(e) =>
                         handleCoefficientChange(index, 1, e.target.value)
                       }
-                      className="w-20"
+                      className="w-20 input"
                       placeholder="0"
                     />
                     <span className="text-sm">X₂</span>
@@ -135,7 +135,7 @@ export function Constraints({ constraints, onChange }: ConstraintsProps) {
                       onChange={(e) =>
                         handleCoefficientChange(index, 2, e.target.value)
                       }
-                      className="w-20"
+                      className="w-20 input"
                       placeholder="0"
                     />
                     <span className="text-sm">X₃</span>
@@ -147,13 +147,13 @@ export function Constraints({ constraints, onChange }: ConstraintsProps) {
                         handleConstraintChange(index, "type", value)
                       }
                     >
-                      <SelectTrigger className="w-20">
+                      <SelectTrigger className="w-20 input">
                         <SelectValue />
                       </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value=">=">≥</SelectItem>
-                        <SelectItem value="<=">≤</SelectItem>
-                        <SelectItem value="=">=</SelectItem>
+                      <SelectContent className="input">
+                        <SelectItem className="hoverInput" value=">=">≥</SelectItem>
+                        <SelectItem className="hoverInput" value="<=">≤</SelectItem>
+                        <SelectItem className="hoverInput" value="=">=</SelectItem>
                       </SelectContent>
                     </Select>
 
@@ -164,7 +164,7 @@ export function Constraints({ constraints, onChange }: ConstraintsProps) {
                       onChange={(e) =>
                         handleConstraintChange(index, "rhs", e.target.value)
                       }
-                      className="w-20"
+                      className="w-20 input"
                       placeholder="0"
                     />
 
@@ -173,7 +173,7 @@ export function Constraints({ constraints, onChange }: ConstraintsProps) {
                       variant="ghost"
                       size="icon"
                       onClick={() => handleRemoveConstraint(index)}
-                      className="ml-auto text-destructive hover:text-destructive hover:bg-destructive/10"
+                      className="ml-auto text-destructive hover:text-destructive hover:bg-destructive/10 btnDelete"
                     >
                       <Trash2 size={16} />
                     </Button>
@@ -188,7 +188,7 @@ export function Constraints({ constraints, onChange }: ConstraintsProps) {
       <Button
         variant="outline"
         onClick={handleAddConstraint}
-        className="w-full"
+        className="w-full btnAdd"
       >
         <Plus size={16} className="mr-2" /> Ajouter une contrainte
       </Button>

@@ -6,7 +6,7 @@ import { Providers } from '@/components/providers';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Linear Programming Solver',
+  title: 'Algorithme de simplexe',
   description: 'A modern interface for solving linear programming problems',
 };
 

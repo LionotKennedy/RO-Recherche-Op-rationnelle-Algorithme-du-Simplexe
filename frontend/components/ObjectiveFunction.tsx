@@ -57,12 +57,12 @@ export function ObjectiveFunctionInput({
           onValueChange={(value) => handleTypeChange(value as "min" | "max")}
           className="flex flex-row space-x-4 sm:flex-col sm:space-x-0 sm:space-y-1"
         >
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="max" id="max" />
+          <div className="flex items-center space-x-4">
+            <RadioGroupItem value="max" id="max" className="maxmix" />
             <Label htmlFor="max">Maximiser</Label>
           </div>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="min" id="min" />
+          <div className="flex items-center space-x-4">
+            <RadioGroupItem value="min" id="min" className="maxmix" />
             <Label htmlFor="min">Minimiser</Label>
           </div>
         </RadioGroup>
@@ -85,7 +85,7 @@ export function ObjectiveFunctionInput({
               type="number"
               value={coefficients[0]}
               onChange={(e) => handleCoefficientChange(0, e.target.value)}
-              className="w-24"
+              className="w-24 input"
               placeholder="0"
             />
             <span className="text-sm">X₁</span>
@@ -95,7 +95,7 @@ export function ObjectiveFunctionInput({
               type="number"
               value={coefficients[1]}
               onChange={(e) => handleCoefficientChange(1, e.target.value)}
-              className="w-24"
+              className="w-24 input"
               placeholder="0"
             />
             <span className="text-sm">X₂</span>
@@ -105,7 +105,7 @@ export function ObjectiveFunctionInput({
               type="number"
               value={coefficients[2]}
               onChange={(e) => handleCoefficientChange(2, e.target.value)}
-              className="w-24"
+              className="w-24 input"
               placeholder="0"
             />
             <span className="text-sm">X₃</span>
