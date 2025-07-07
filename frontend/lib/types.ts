@@ -33,33 +33,6 @@ export interface SolverResult {
 }
 
 // Dans vos types (types.ts)
-// export interface SolverResult {
-//   solution: {
-//     [key: string]: number;
-//   };
-//   steps: {
-//     phase: string;
-//     iteration?: number;
-//     message: string;
-//     tableau?: any[][];
-//     pivot?: { row: number; col: number; value: number };
-//   }[];
-// }
-
-
-// export interface SolverResult {
-//   solution: {
-//     [key: string]: number;
-//   };
-//   steps: SolverStep[];
-// }
-
-
-
-
-
-
-// Dans vos types (types.ts)
 export interface SolverStep {
   phase: string;
   iteration?: number;

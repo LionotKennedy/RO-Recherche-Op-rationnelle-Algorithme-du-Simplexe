@@ -1,0 +1,242 @@
+
+
+
+// import { LinearProgrammingProblem, SolverResult } from "./types";
+
+// export async function solveLinearProgrammingProblem(
+//   problem: LinearProgrammingProblem
+// ): Promise<SolverResult> {
+//   try {
+//     const response = await fetch("http://localhost:3003/api/solve", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(problem),
+//     });
+
+//     if (!response.ok) {
+//       throw new Error(`API request failed with status: ${response.status}`);
+//     }
+
+//     const result = await response.json();
+//     return result;
+//     res.status(200).json({
+//       solution: result.solution,
+//       steps: result.steps,
+//     });
+//   } catch (error) {
+//     console.error("Error solving linear programming problem:", error);
+//     throw error;
+//   }
+// }
+
+
+
+
+
+// import { LinearProgrammingProblem, SolverResult } from "./types";
+
+// export async function solveLinearProgrammingProblem(
+//   problem: LinearProgrammingProblem
+// ): Promise<SolverResult> {
+//   try {
+//     const response = await fetch("http://localhost:3003/api/solve", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(problem),
+//     });
+
+//     if (!response.ok) {
+//       throw new Error(`API request failed with status: ${response.status}`);
+//     }
+
+//     const result = await response.json();
+//     return result; // Retourne directement le résultat, le formatage doit être fait côté API
+//   } catch (error) {
+//     console.error("Error solving linear programming problem:", error);
+//     throw error;
+//   }
+// }
+
+
+
+
+
+
+
+
+
+// import type { LinearProgrammingProblem, SolverResult } from "./types"
+
+// export async function solveLinearProgrammingProblem(problem: LinearProgrammingProblem): Promise<SolverResult> {
+//   try {
+//     console.log("Sending problem to API:", problem)
+
+//     const response = await fetch("http://localhost:3003/api/solve", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(problem),
+//     })
+
+//     if (!response.ok) {
+//       throw new Error(`API request failed with status: ${response.status}`)
+//     }
+
+//     const result = await response.json()
+//     console.log("Received result from API:", result)
+
+//     // Normaliser la structure de la réponse pour correspondre au type SolverResult
+//     if (result.solution) {
+//       return {
+//         status: "success",
+//         data: {
+//           x1: result.solution.x1 || 0,
+//           x2: result.solution.x2 || 0,
+//           x3: result.solution.x3 || 0,
+//           Z: result.solution.Z || 0,
+//         },
+//         solution: result.solution,
+//         steps: result.steps || [],
+//       }
+//     }
+
+//     // Si la structure est différente, essayer d'extraire les données
+//     return {
+//       status: "success",
+//       data: {
+//         x1: result.x1 || 0,
+//         x2: result.x2 || 0,
+//         x3: result.x3 || 0,
+//         Z: result.Z || 0,
+//       },
+//       solution: result,
+//       steps: result.steps || [],
+//     }
+//   } catch (error) {
+//     console.error("Error solving linear programming problem:", error)
+
+//     // Retourner une structure d'erreur qui respecte le type SolverResult
+//     return {
+//       status: "error",
+//       message: error instanceof Error ? error.message : "Une erreur inconnue s'est produite",
+//       data: {
+//         x1: 0,
+//         x2: 0,
+//         x3: 0,
+//         Z: 0,
+//       },
+//       solution: {
+//         x1: 0,
+//         x2: 0,
+//         x3: 0,
+//         Z: 0,
+//       },
+//       steps: [],
+//     }
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+// import type { LinearProgrammingProblem, SolverResult } from "./types"
+
+// interface SolverStep {
+//   type: "tableau" | "pivot" | "phase" | "result" | "info"
+//   title: string
+//   data?: number[][]
+//   message?: string
+//   phase?: string
+//   iteration?: number
+//   pivotInfo?: {
+//     row: number
+//     col: number
+//     value: number
+//   }
+//   solution?: any
+// }
+
+// interface EnhancedSolverResult extends SolverResult {
+//   steps: SolverStep[]
+// }
+
+// export async function solveLinearProgrammingProblem(problem: LinearProgrammingProblem): Promise<EnhancedSolverResult> {
+//   try {
+//     const response = await fetch("http://localhost:3003/api/solve", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(problem),
+//     })
+
+//     if (!response.ok) {
+//       throw new Error(`API request failed with status: ${response.status}`)
+//     }
+
+//     const result = await response.json()
+//     return result
+//   } catch (error) {
+//     console.error("Error solving linear programming problem:", error)
+//     throw error
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // Modifier le type de retour pour utiliser SolverResult
+// import type { LinearProgrammingProblem, SolverResult } from "./types"
+
+// export async function solveLinearProgrammingProblem(problem: LinearProgrammingProblem): Promise<SolverResult> {
+//   try {
+//     const response = await fetch("http://localhost:3003/api/solve", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(problem),
+//     })
+
+//     if (!response.ok) {
+//       throw new Error(`API request failed with status: ${response.status}`)
+//     }
+
+//     const result = await response.json()
+//     return result
+//   } catch (error) {
+//     console.error("Error solving linear programming problem:", error)
+//     throw error
+//   }
+// }
