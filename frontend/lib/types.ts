@@ -31,3 +31,61 @@ export interface SolverResult {
     Z: number;
   };
 }
+
+// Dans vos types (types.ts)
+// export interface SolverResult {
+//   solution: {
+//     [key: string]: number;
+//   };
+//   steps: {
+//     phase: string;
+//     iteration?: number;
+//     message: string;
+//     tableau?: any[][];
+//     pivot?: { row: number; col: number; value: number };
+//   }[];
+// }
+
+
+// export interface SolverResult {
+//   solution: {
+//     [key: string]: number;
+//   };
+//   steps: SolverStep[];
+// }
+
+
+
+
+
+
+// Dans vos types (types.ts)
+export interface SolverStep {
+  phase: string;
+  iteration?: number;
+  message: string;
+  tableau?: number[][];
+  pivot?: {
+    row: number;
+    col: number;
+    value: number;
+  };
+}
+
+export interface SolverResult {
+  // status: "success" | "error";
+  message?: string; // Ajoutez cette ligne pour rendre la propriété optionnelle
+  data: {
+    x1: number;
+    x2: number;
+    x3: number;
+    Z: number;
+  };
+  solution: {
+    x1: number;
+    x2: number;
+    x3: number;
+    Z: number;
+  };
+  steps: SolverStep[];
+}
